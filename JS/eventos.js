@@ -52,7 +52,7 @@ const eventos = [
   //  tituloDestacado: "Ver Copa Oro de la Concacaf En Vivo",
   //  descripcion: "Del 14 de junio al 6 de julio",
   //  imagen: "https://pbs.twimg.com/media/GtfcAWBaoAEYseK.jpg:large",
-  //  imagenDestacada: "https://pbs.twimg.com/media/GtfcAWBaoAEYseK.jpg:large",
+  //  imagenDestacada: "https://ds-images.bolavip.com/news/image?src=https%3A%2F%2Fimages.bolavip.com%2Fjpg%2Fmx%2Ffull%2FBMX_20240808_BMX_151308_cop.jpg&width=1200&height=740",
   //  enlace: "HTML/destacada3.html", //Entrada Index
  //   enlaceProgramacion: "destacada3.html", //Progrmación
  //   destacado: false,
@@ -66,10 +66,10 @@ const eventos = [
     tituloDestacado: "Copa Oro de la Concacaf 2025 En Vivo",
     descripcion: "Copa Oro de la Concacaf 2025",
     imagen: "https://images.mlssoccer.com/image/private/t_editorial_landscape_8_desktop_mobile/prd-league/p1yazsnshenwrj4negv0.png",
-    imagenDestacada: "https://pbs.twimg.com/media/GtfcAWBaoAEYseK.jpg:large",
+    imagenDestacada: "https://ds-images.bolavip.com/news/image?src=https%3A%2F%2Fimages.bolavip.com%2Fjpg%2Fmx%2Ffull%2FBMX_20240808_BMX_151308_cop.jpg&width=1200&height=740",
     enlace: "HTML/destacada3.html", //Entrada Index
     enlaceProgramacion: "destacada3.html", //Progrmación
-    destacado: false,
+    destacado: true,
     inicio: "2025-06-17T19:00",
     fin: "2025-06-17T21:30",
     orden: 4,
@@ -95,10 +95,10 @@ const eventos = [
     tituloDestacado: "Copa Oro de la Concacaf 2025 En Vivo",
     descripcion: "Copa Oro de la Concacaf 2025",
     imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlkqOryacwb-0Av63pG8t_bR8jvMiWZXDg7Q&s",
-    imagenDestacada: "https://pbs.twimg.com/media/GtfcAWBaoAEYseK.jpg:large",
+    imagenDestacada: "https://ds-images.bolavip.com/news/image?src=https%3A%2F%2Fimages.bolavip.com%2Fjpg%2Fmx%2Ffull%2FBMX_20240808_BMX_151308_cop.jpg&width=1200&height=740",
     enlace: "HTML/destacada3.html", //Entrada Index
     enlaceProgramacion: "destacada3.html", //Progrmación
-    destacado: false,
+    destacado: true,
     inicio: "2025-06-17T21:30",
     fin: "2025-06-17T23:30",
     orden: 6,
@@ -113,7 +113,7 @@ const eventos = [
     enlace: "HTML/destacada2.html", //Entrada Index
     enlaceProgramacion: "destacada2.html", //Progrmación
     disponible: true,
-    destacado: false,
+    destacado: true,
     orden: 7,
     inicio: "2025-06-23T19:00:00",
     fin: "2025-06-23T22:00:00"
@@ -197,15 +197,13 @@ const contenedor = document.getElementById("contenedor-eventos");
 function mostrarProximoEventoEnVivo() {
   const ahora = new Date();
   const eventosFuturos = eventos.filter(evento => new Date(evento.inicio) > ahora);
-
   if (eventosFuturos.length === 0) return;
 
-  // Ordenar por el más próximo
   eventosFuturos.sort((a, b) => new Date(a.inicio) - new Date(b.inicio));
   const proximo = eventosFuturos[0];
   const inicioProximo = new Date(proximo.inicio);
 
-  const contenedor = document.getElementById("proximo-en-vivo");
+  const contenedor = document.getElementById("proximo-evento");
 
   function actualizarTemporizador() {
     const ahora = new Date();
@@ -234,6 +232,32 @@ function mostrarProximoEventoEnVivo() {
   setInterval(actualizarTemporizador, 1000);
 }
 
+function mostrarEventosEnVivo() {
+  const contenedor = document.getElementById("eventos-en-vivo");
+  if (!contenedor) return;
+
+  const ahora = new Date();
+  const eventosEnVivo = eventos.filter(evento => {
+    const inicio = new Date(evento.inicio);
+    const fin = new Date(evento.fin);
+    return ahora >= inicio && ahora <= fin;
+  });
+
+  eventosEnVivo.forEach(evento => {
+    const enlace = desdeProgramacion && evento.enlaceProgramacion ? evento.enlaceProgramacion : evento.enlace;
+
+    const div = document.createElement("div");
+    div.className = "evento-en-vivo";
+
+    div.innerHTML = `
+      <span>${evento.titulo}</span>
+      <a href="${enlace}" class="btn btn-danger btn-sm">Ver en Vivo</a>
+    `;
+
+    contenedor.appendChild(div);
+  });
+}
+
 
 // Mostrar eventos
 if (contenedor) {
@@ -242,7 +266,6 @@ if (contenedor) {
     const fin = new Date(evento.fin);
     const ahora = new Date();
     const diferenciaMinutos = (inicio - ahora) / (1000 * 60);
-
     const enlaceCorrecto = desdeProgramacion && evento.enlaceProgramacion ? evento.enlaceProgramacion : evento.enlace;
 
     const card = document.createElement("div");
@@ -271,7 +294,6 @@ if (contenedor) {
   });
 }
 
-// Temporizador en vivo
 function iniciarTemporizadores() {
   const temporizadores = document.querySelectorAll(".temporizador");
 
@@ -288,9 +310,14 @@ function iniciarTemporizadores() {
       const dif = inicio - ahora;
 
       if (ahora >= fin) {
-        temp.textContent = "Finalizado";
-        if (btn && btn.dataset.disponible !== "finalizado") {
-          btn.outerHTML = `<button class="btn btn-outline-light ver-evento" data-disponible="finalizado">Evento finalizado</button>`;
+        const minutosDesdeFin = (ahora - fin) / (1000 * 60);
+        if (minutosDesdeFin >= 15) {
+          card.remove(); // Ocultar
+        } else {
+          temp.textContent = "Finalizado";
+          if (btn && btn.dataset.disponible !== "finalizado") {
+            btn.outerHTML = `<button class="btn btn-outline-light ver-evento" data-disponible="finalizado">Evento finalizado</button>`;
+          }
         }
         return;
       }
@@ -318,12 +345,8 @@ function iniciarTemporizadores() {
       if (horas > 0 || dias > 0) tiempoTexto += `${horas}h `;
       if (minutos > 0) tiempoTexto += `${minutos}m `;
       tiempoTexto += `${segundos}s`;
-      
-      if (minutosRestantes <= 5) {
-        temp.textContent = `${tiempoTexto} ¡Comienza pronto!`;
-      } else {
-        temp.textContent = tiempoTexto;
-      }
+
+      temp.textContent = minutosRestantes <= 5 ? `${tiempoTexto} ¡Comienza pronto!` : tiempoTexto;
     }
 
     actualizar();
@@ -333,7 +356,8 @@ function iniciarTemporizadores() {
 
 document.addEventListener("DOMContentLoaded", () => {
   iniciarTemporizadores();
-  mostrarProximoEventoEnVivo(); // 👈 ESTA
+  mostrarProximoEventoEnVivo();
+  mostrarEventosEnVivo();
 
   document.addEventListener("click", function (e) {
     const btn = e.target.closest(".ver-evento");
@@ -359,31 +383,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// CAMBIO AUTOMÁTICO DE TÍTULO EN destacada.html, destacada2.html y destacada3.html
+// CAMBIO AUTOMÁTICO DE TÍTULO EN destacadas
 document.addEventListener("DOMContentLoaded", () => {
   const rutaActual = window.location.pathname;
   const nombreArchivo = rutaActual.substring(rutaActual.lastIndexOf("/") + 1);
-
   const archivosPermitidos = ["destacada.html", "destacada2.html", "destacada3.html"];
 
   if (archivosPermitidos.includes(nombreArchivo)) {
     const ahora = new Date();
-
-    // Filtrar solo eventos que usan los destacadas
     const eventosDestacados = eventos.filter(evento =>
       evento.enlace.includes(nombreArchivo) || evento.enlaceProgramacion.includes(nombreArchivo)
     );
 
-    // Buscar evento activo
     const eventoActivo = eventosDestacados.find(evento => {
       const inicio = new Date(evento.inicio);
       const fin = new Date(evento.fin);
       return ahora >= inicio && ahora <= fin;
     });
 
-    // Si no hay evento activo, buscar el siguiente
     const proximoEvento = eventosDestacados.find(evento => new Date(evento.inicio) > ahora);
-
     const eventoMostrado = eventoActivo || proximoEvento;
 
     if (eventoMostrado && eventoMostrado.tituloDestacado) {
@@ -392,5 +410,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-
-

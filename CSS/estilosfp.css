@@ -306,4 +306,30 @@ footer {
   height: 24px;
 }
 
+/* Caja para el evento próximo */
+#proximo-evento {
+  background: #242834;
+  padding: 12px 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
 
+/* Cada evento en vivo en línea */
+.evento-en-vivo {
+  background: linear-gradient(to right, #0d2c36, #2a5063);
+  padding: 12px 20px;
+  border-radius: 10px;
+  width: 90%;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+}
+
+.evento-en-vivo .btn {
+  font-size: 0.9rem;
+}
