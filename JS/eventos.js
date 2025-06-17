@@ -43,7 +43,7 @@ const eventos = [
     destacado: true,
     orden: 3,
     inicio: "2025-06-17T14:00:00",
-    fin: "2025-06-17T15:45:00"
+    fin: "2025-06-17T16:00:00"
   },
 
 
