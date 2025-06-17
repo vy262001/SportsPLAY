@@ -1,0 +1,309 @@
+/* === Estilos para FutbolPlay === */
+
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VIDEO DE FONDO */
+#video-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: blur(10px) brightness(0.7);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1117;
+  color: #ffffff;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ENCABEZADO */
+
+header {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 25px 0 10px;
+  text-align: center;
+  border-bottom: 2px solid #1f6feb;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  color: #eb1f1f;
+  margin-bottom: 5px;
+}
+
+header p {
+  font-size: 1rem;
+  color: #c9d1d9;
+  margin-bottom: 5px;
+}
+
+/* LOGO POSICIONADO ARRIBA A LA IZQUIERDA */
+.logo {
+  width: 150px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* NAVBAR GENÉRICO */
+nav ul,
+.navbar-nav,
+.nav-destacada,
+header nav ul.nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-left: 0;
+  margin: 10px 0;
+}
+
+nav ul li a,
+.nav-item .nav-link,
+.nav-destacada li a,
+header nav ul.nav li a {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover,
+.nav-item .nav-link:hover,
+.nav-destacada li a:hover,
+header nav ul.nav li a:hover {
+  color: #eb1f1f !important;
+}
+
+/* MAIN */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* SECCIONES GENERALES */
+section h1 {
+  color: #f0f6fc;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 4px #000;
+}
+
+/* CARDS GENERALES */
+.card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.card-title {
+  color: #ffffff;
+}
+
+.card-text {
+  color: #c9d1d9;
+}
+
+/* CARD UNIFORME */
+.card-uniforme {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-uniforme .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-uniforme .card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* CARD DESTACADA */
+.card-destacada {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  height: 400px;
+}
+
+.card-destacada img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+.card-destacada .overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 100%;
+  padding: 20px;
+  transition: background 0.3s ease;
+}
+
+.card-destacada .overlay h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+
+.card-destacada .overlay p {
+  margin: 5px 0 0;
+  color: #dddddd;
+  font-size: 1rem;
+}
+
+.card-destacada:hover .overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* TRANSMISIÓN */
+.card-transmision {
+  height: auto;
+}
+
+.card-transmision .preframe {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background-color: #000;
+  border-radius: 12px;
+}
+
+.card-transmision iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* FOOTER */
+footer {
+  background-color: #1f1f1f;
+  color: #c9d1d9;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1rem;
+}
+
+.paypal-donacion {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.paypal-enlace {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.paypal-logo {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.paypal-boton {
+    background-color: #0070ba;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.paypal-boton:hover {
+    transform: scale(1.05);
+    background-color: #005c9c;
+}
+
+#sidebar-scroll {
+  overflow-y: auto;
+  max-height: 360px; /* Asegura que nunca sobrepase la altura del video */
+}
+
+/* Estilo opcional para scrollbar bonito */
+#sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+#sidebar-scroll::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 3px;
+}
+
+#contenedor-eventos {
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+}
+
+#contenedor-eventos .card {
+  width: 270px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+
+.btn-programacion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-programacion:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+.icono-btn {
+  width: 24px;
+  height: 24px;
+}
+
+

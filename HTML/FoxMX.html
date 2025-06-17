@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../IMAGENES/ico.png" type="image/x-icon">
+  <meta name="robots" content="noindex, nofollow">
+  <title>SPORTSPLAY ® | Fox Sports MX En Vivo</title>
+  <link rel="stylesheet" href="../assets/css/main.css?v=1.10">
+  <link rel="stylesheet" href="../assets/css/eventos.css?v=1.10">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"></script>
+  <script src="../assets/js/eventos.js?v=1.10"></script>
+  <link rel="stylesheet" href="../CSS/comunes.css">
+</head>
+<body>
+
+    <video autoplay muted loop id="video-fondo">
+    <source src="../VIDEOS/SOCCER INTRO - IRIXEX COMMERCIAL (1080p, h264) (online-video-cutter.com).mp4" type="video/mp4">
+    </video>
+
+  <header>
+    <h1>
+    <a href="../index.html" style="text-decoration: none; color: inherit;">SportsPLAY</a>
+    </h1>
+    <p>Tu portal de canales y partidos en vivo</p>
+    <nav>
+      <ul class="nav nav-pills justify-content-center my-3">
+        <ul class="nav-destacada">
+            <li class="nav-item">
+            <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link text-primary fw-bold" href="../index.html#canales">Canales</a>
+            <li class="nav-item">
+            <a class="nav-link text-primary fw-bold" href="../HTML/programacion.html">Programación</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link text-primary fw-bold" href="../HTML/ligascompeticiones.html">Ligas y Competiciones</a>
+            </li>
+        </ul>
+        </nav>
+  </header>
+
+  <main class="main-frame" style="padding: 20px;">
+    <!-- TÍTULO NUEVO -->
+    <h1 class="titulo-evento">Fox Sports MX En Vivo</h1>
+
+    <div class="card-destacada card-transmision" style="margin: auto; max-width: 960px;">
+      <div class="preframe">
+        <iframe allowfullscreen="true"
+                scrolling="no"
+                src="https://stream196tp.com/global1.php?stream=foxsportsmx"
+                allow="encrypted-media"
+                frameborder="0"
+                id="embedIframe"
+                loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="paypal-donacion">
+      <a href="https://www.paypal.com/donate/?hosted_button_id=CAQWXQQWKSNKU" target="_blank" class="paypal-enlace">
+      <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal" class="paypal-logo">
+      <button class="paypal-boton">Donar con PayPal</button>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>SportsPlay - Todos los eventos en un solo lugar</p>
+  </footer>
+</body>
+</html>
