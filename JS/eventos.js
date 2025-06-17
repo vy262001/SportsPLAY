@@ -43,9 +43,22 @@ const eventos = [
     destacado: true,
     orden: 3,
     inicio: "2025-06-17T14:00:00",
-    fin: "2025-06-17T16:00:00"
+    fin: "2025-06-17T15:45:00"
   },
 
+  {
+    titulo: "Ulsan Hyundai Vs Mamelodi - Mundial de Clubes 2025",
+    tituloDestacado: "Ver Mundial de Clubes FIFA 2025 En Vivo",
+    descripcion: "Mundial de Clubes 2025",
+    imagen: "https://i.ytimg.com/vi/NszrEiiNsn4/maxresdefault.jpg",
+    imagenDestacada: "IMAGENES/mundialdeclubes2025.webp",
+    enlace: "HTML/destacada.html", //Entrada Index
+    enlaceProgramacion: "destacada.html", //Progrmación
+    destacado: true,
+    orden: 3,
+    inicio: "2025-06-17T17:00:00",
+    fin: "2025-06-17T19:15:00"
+  },
 
  // {
  //   titulo: "Copa Oro de la Concacaf 2025",
@@ -115,9 +128,10 @@ const eventos = [
     disponible: true,
     destacado: true,
     orden: 7,
-    inicio: "2025-06-23T19:00:00",
-    fin: "2025-06-23T22:00:00"
+    inicio: "2025-06-17T16:00:00",
+    fin: "2025-06-17T16:00:15"
   },
+  
   {
     titulo: "WWE NXT 17 de junio de 2025",
     tituloDestacado: "Ver WWE NXT 17 de junio de 2025 En Vivo",
@@ -187,6 +201,40 @@ const eventos = [
     fin: "2025-06-28T23:00:00"
   }
 ];
+
+
+// Lista de títulos a actualizar
+const titulosParaActualizar = [
+  "WWE Monday Night Raw 23 de junio de 2025",
+  "WWE NXT 17 de junio de 2025",
+  "AEW Grand Slam México - Junio 2025",
+  "WWE SmackDown 20 de junio de 2025"
+];
+
+// Actualizar eventos pasados antes de mostrar o procesar
+function actualizarEventosPasadosEspecificos(eventos, titulosActualizar) {
+  const ahora = new Date();
+
+  eventos.forEach(evento => {
+    if (!titulosActualizar.includes(evento.titulo)) return;
+
+    let fin = new Date(evento.fin);
+
+    while (fin < ahora) {
+      const inicio = new Date(evento.inicio);
+      const finOriginal = new Date(evento.fin);
+
+      evento.inicio = new Date(inicio.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString();
+      evento.fin = new Date(finOriginal.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString();
+
+      fin = new Date(evento.fin);
+    }
+  });
+}
+
+// Aplicar la actualización ANTES de todo
+actualizarEventosPasadosEspecificos(eventos, titulosParaActualizar);
+
 
 // Ordenar eventos por su orden
 eventos.sort((a, b) => a.orden - b.orden);
@@ -410,3 +458,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
