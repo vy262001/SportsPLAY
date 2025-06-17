@@ -3,20 +3,20 @@ const desdeProgramacion = window.location.pathname.includes("programacion.html")
 
 // Lista de eventos
 const eventos = [
-  {
-    titulo: "Mundial de Clubes FIFA 2025",
-    tituloDestacado: "Ver Mundial de Clubes FIFA 2025 En Vivo",
-    descripcion: "Del 14 de junio al 13 de julio",
-    imagen: "https://www.365scores.com/es/news/wp-content/uploads/2024/12/image-17-1024x582.png",
-    imagenDestacada: "IMAGENES/mundialdeclubes2025.webp",
-    enlace: "HTML/destacada.html", //Entrada Index
-    enlaceProgramacion: "destacada.html", //Progrmación
-    disponible: true,
-    destacado: true,
-    orden: 1,
-    inicio: "2025-06-14T12:00:00",
-    fin: "2025-07-13T23:59:59"
-  },
+  //{
+  //  titulo: "Mundial de Clubes FIFA 2025",
+  //  tituloDestacado: "Ver Mundial de Clubes FIFA 2025 En Vivo",
+  //  descripcion: "Del 14 de junio al 13 de julio",
+  //  imagen: "https://www.365scores.com/es/news/wp-content/uploads/2024/12/image-17-1024x582.png",
+  //  imagenDestacada: "IMAGENES/mundialdeclubes2025.webp",
+  //  enlace: "HTML/destacada.html", //Entrada Index
+  //  enlaceProgramacion: "destacada.html", //Progrmación
+  //  disponible: true,
+  //  destacado: true,
+  //  orden: 1,
+   // inicio: "2025-06-14T12:00:00",
+   // fin: "2025-07-13T23:59:59"
+  //},
 
   {
     titulo: "Fluminense Vs Dortmund - Mundial de Clubes 2025",
@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (eventoMostrado && eventoMostrado.tituloDestacado) {
       const h1 = document.querySelector(".titulo-evento");
-      if (h1) h1.textContent = eventoMostrado.tituloDestacado;
+      if (h1) h1.textContent = eventoMostrado.titulo;
     }
   }
 });
