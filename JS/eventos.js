@@ -27,7 +27,7 @@ const eventos = [
     enlace: "HTML/destacada.html", //Entrada Index
     enlaceProgramacion: "destacada.html", //Progrmación
     destacado: true,
-    orden: 1,
+    orden: 2,
     inicio: "2025-06-17T11:00:00",
     fin: "2025-06-17T13:30:00"
   },
@@ -41,7 +41,7 @@ const eventos = [
     enlace: "HTML/destacada.html", //Entrada Index
     enlaceProgramacion: "destacada.html", //Progrmación
     destacado: true,
-    orden: 1,
+    orden: 3,
     inicio: "2025-06-17T14:00:00",
     fin: "2025-06-17T15:45:00"
   },
@@ -72,7 +72,7 @@ const eventos = [
     destacado: false,
     inicio: "2025-06-17T19:00",
     fin: "2025-06-17T21:30",
-    orden: 2
+    orden: 4,
   },
 
   {
@@ -84,7 +84,7 @@ const eventos = [
     enlace: "HTML/destacada.html", //Entrada Index
     enlaceProgramacion: "destacada.html", //Progrmación
     destacado: true,
-    orden: 1,
+    orden: 5,
     inicio: "2025-06-17T20:00:00",
     fin: "2025-06-17T22:00:00"
   },
@@ -101,7 +101,7 @@ const eventos = [
     destacado: false,
     inicio: "2025-06-17T21:30",
     fin: "2025-06-17T23:30",
-    orden: 2
+    orden: 6,
   },
 
   {
@@ -114,7 +114,7 @@ const eventos = [
     enlaceProgramacion: "destacada2.html", //Progrmación
     disponible: true,
     destacado: false,
-    orden: 3,
+    orden: 7,
     inicio: "2025-06-23T19:00:00",
     fin: "2025-06-23T22:00:00"
   },
@@ -129,7 +129,7 @@ const eventos = [
     destacado: false,
     inicio: "2025-06-17T19:00",
     fin: "2025-06-17T21:30",
-    orden: 4
+    orden: 8,
   },
   {
     titulo: "AEW Grand Slam México - Junio 2025",
@@ -141,7 +141,7 @@ const eventos = [
     enlaceProgramacion: "FoxMX.html", //Progrmación
     disponible: false,
     destacado: false,
-    orden: 5,
+    orden: 9,
     inicio: "2025-06-18T19:00:00",
     fin: "2025-06-18T22:30:00"
   },
@@ -155,7 +155,7 @@ const eventos = [
     enlaceProgramacion: "destacada2.html", //Progrmación
     disponible: false,
     destacado: false,
-    orden: 6,
+    orden: 10,
     inicio: "2025-06-20T19:00:00",
     fin: "2025-06-20T21:30:00"
   },
@@ -170,7 +170,7 @@ const eventos = [
     destacado: false,
     inicio: "2025-06-23T00:00",
     fin: "2025-06-23T23:59",
-    orden: 7
+    orden: 11,
   },
   {
     titulo: "WWE Night Of Champions 2025",
@@ -182,7 +182,7 @@ const eventos = [
     enlaceProgramacion: "destacada2.html", //Progrmación
     disponible: false,
     destacado: false,
-    orden: 8,
+    orden: 12,
     inicio: "2025-06-28T19:00:00",
     fin: "2025-06-28T23:00:00"
   }
