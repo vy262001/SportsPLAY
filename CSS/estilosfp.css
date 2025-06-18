@@ -33,10 +33,9 @@ body {
 }
 
 /* ENCABEZADO */
-
 header {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.95);
   padding: 25px 0 10px;
   text-align: center;
   border-bottom: 2px solid #1f6feb;
@@ -48,53 +47,24 @@ header h1 {
   margin-bottom: 5px;
 }
 
-header p {
+header p,
+.eslogan {
   font-size: 1rem;
   color: #c9d1d9;
   margin-bottom: 5px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
-/* LOGO POSICIONADO ARRIBA A LA IZQUIERDA */
+/* LOGO */
 .logo {
-  width: 150px;
+  width: 160px;
   height: auto;
   transition: transform 0.3s ease-in-out;
 }
 
 .logo:hover {
-  transform: scale(1.1);
-}
-
-/* NAVBAR GENÉRICO */
-nav ul,
-.navbar-nav,
-.nav-destacada,
-header nav ul.nav {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  padding-left: 0;
-  margin: 10px 0;
-}
-
-nav ul li a,
-.nav-item .nav-link,
-.nav-destacada li a,
-header nav ul.nav li a {
-  color: #ffffff !important;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: color 0.3s;
-}
-
-nav ul li a:hover,
-.nav-item .nav-link:hover,
-.nav-destacada li a:hover,
-header nav ul.nav li a:hover {
-  color: #eb1f1f !important;
+  transform: scale(1.08);
 }
 
 /* MAIN */
@@ -103,14 +73,13 @@ main {
   padding: 20px;
 }
 
-/* SECCIONES GENERALES */
 section h1 {
   color: #f0f6fc;
   margin-bottom: 30px;
   text-shadow: 1px 1px 4px #000;
 }
 
-/* CARDS GENERALES */
+/* CARDS */
 .card {
   background-color: rgba(255, 255, 255, 0.05);
   border: none;
@@ -131,7 +100,6 @@ section h1 {
   color: #c9d1d9;
 }
 
-/* CARD UNIFORME */
 .card-uniforme {
   height: 100%;
   display: flex;
@@ -150,7 +118,6 @@ section h1 {
   justify-content: space-between;
 }
 
-/* CARD DESTACADA */
 .card-destacada {
   position: relative;
   overflow: hidden;
@@ -194,10 +161,6 @@ section h1 {
 }
 
 /* TRANSMISIÓN */
-.card-transmision {
-  height: auto;
-}
-
 .card-transmision .preframe {
   position: relative;
   width: 100%;
@@ -224,63 +187,75 @@ footer {
 }
 
 .paypal-donacion {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 20px;
 }
 
 .paypal-enlace {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .paypal-logo {
-    height: 30px;
-    margin-right: 10px;
+  height: 30px;
+  margin-right: 10px;
 }
 
 .paypal-boton {
-    background-color: #0070ba;
-    color: white;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+  background-color: #0070ba;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .paypal-boton:hover {
-    transform: scale(1.05);
-    background-color: #005c9c;
+  transform: scale(1.05);
+  background-color: #005c9c;
 }
 
+/* SIDEBAR SCROLL */
 #sidebar-scroll {
   overflow-y: auto;
-  max-height: 360px; /* Asegura que nunca sobrepase la altura del video */
+  max-height: 360px;
 }
 
-/* Estilo opcional para scrollbar bonito */
 #sidebar-scroll::-webkit-scrollbar {
   width: 6px;
 }
+
 #sidebar-scroll::-webkit-scrollbar-thumb {
   background-color: #666;
   border-radius: 3px;
 }
 
-#contenedor-eventos {
-  scroll-snap-type: x mandatory;
-  padding-bottom: 1rem;
+/* EVENTOS */
+#proximo-evento {
+  background: #242834;
+  padding: 12px 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
 }
 
-#contenedor-eventos .card {
-  width: 270px;
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  border-radius: 12px;
+.evento-en-vivo {
+  background: linear-gradient(to right, #0d2c36, #2a5063);
+  padding: 12px 20px;
+  border-radius: 10px;
+  width: 90%;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
 }
 
+/* BOTÓN DE PROGRAMACIÓN */
 .btn-programacion {
   display: inline-flex;
   align-items: center;
@@ -306,30 +281,51 @@ footer {
   height: 24px;
 }
 
-/* Caja para el evento próximo */
-#proximo-evento {
-  background: #242834;
-  padding: 12px 20px;
-  border-radius: 10px;
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 1.1rem;
+.navbar-nav .nav-link:hover,
+.nav-item .nav-link:hover,
+header nav ul.nav li a:hover {
+  color: #eb1f1f !important;
 }
 
-/* Cada evento en vivo en línea */
-.evento-en-vivo {
-  background: linear-gradient(to right, #0d2c36, #2a5063);
-  padding: 12px 20px;
-  border-radius: 10px;
-  width: 90%;
-  color: white;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 600px;
+
+/* NAVBAR MODERNA */
+.custom-navbar {
+  background: rgba(10, 15, 30, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid #1f6feb;
+  padding: 12px 0;
+  z-index: 999;
 }
 
-.evento-en-vivo .btn {
-  font-size: 0.9rem;
+.custom-navbar .nav-link {
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-navbar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #eb1f1f !important;
+  transform: scale(1.05);
+}
+
+/* BOTÓN HAMBURGUESA */
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* RESPONSIVE NAVBAR */
+@media (max-width: 991.98px) {
+  .custom-navbar .nav-link {
+    width: 100%;
+    margin: 4px 0;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
 }

@@ -45,18 +45,6 @@ header p {
   color: #c9d1d9;
 }
 
-button {
-  background-color: #ffffff;
-  color: #000;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
 
 button img {
   margin-right: 10px;
@@ -64,9 +52,6 @@ button img {
   max-height: 24px;
 }
 
-button:hover {
-  background-color: #f0f0f0;
-}
 
 .imagen-competiciones {
   width: 100%;
@@ -192,3 +177,86 @@ section h1 {
   text-shadow: 1px 1px 4px #000;
 }
 
+/* === Estilos combinados para NAVBAR con hamburguesa en móviles === */
+
+/* Botón hamburguesa (solo visible en móviles) */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* NAVBAR responsive presentable */
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding-left: 0;
+  flex-wrap: wrap;
+}
+
+.navbar-nav .nav-link,
+.nav-item .nav-link,
+header nav ul.nav li a {
+  font-size: 0.95rem;
+  color: #ffffff !important;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link:hover,
+.nav-item .nav-link:hover,
+header nav ul.nav li a:hover {
+  color: #eb1f1f !important;
+}
+
+/* NAVBAR colapsado en móviles */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: transparent !important;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  .navbar-nav .nav-link {
+    display: block;
+    padding: 12px;
+    margin: 2px auto;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #eb1f1f !important;
+  }
+}
+
+/* NAVBAR destacada heredada */
+.nav-destacada {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.nav-destacada li a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-destacada li a:hover {
+  color: #f0f6fc;
+}
